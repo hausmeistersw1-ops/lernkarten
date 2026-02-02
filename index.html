@@ -2,21 +2,74 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Lernkarten Test</title>
+  <title>Lernkarten – Fachwirt für Logistiksysteme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f3f4f6; margin:0; padding:20px; }
+    .app { max-width:420px; margin:0 auto; background:#fff; border-radius:16px; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,.1); }
+    .top { color:#c026d3; font-weight:bold; margin-bottom:8px; }
+    h1 { font-size:18px; margin:0 0 12px; }
+    .answer { background:#f9fafb; border-radius:12px; padding:12px; margin:12px 0; white-space:pre-line; display:none; }
+    button { width:100%; padding:10px; border:none; border-radius:12px; background:#2563eb; color:#fff; font-size:14px; cursor:pointer; }
+    .nav { display:flex; justify-content:space-between; margin-top:12px; }
+    .nav button { width:48%; background:#6b7280; }
+    .footer { text-align:center; font-size:12px; color:#6b7280; margin-top:10px; }
+  </style>
 </head>
 <body>
 
-<h1>✅ App funktioniert</h1>
+<div class="app">
+  <div id="top" class="top"></div>
+  <h1 id="question"></h1>
+  <div id="answer" class="answer"></div>
 
-<p>Frage: Was ist Logistik?</p>
+  <button onclick="toggleAnswer()">Antwort anzeigen / verbergen</button>
 
-<button onclick="document.getElementById('a').style.display='block'">
-Antwort anzeigen
-</button>
+  <div class="nav">
+    <button onclick="prevCard()">◀ Zurück</button>
+    <button onclick="nextCard()">Weiter ▶</button>
+  </div>
 
-<p id="a" style="display:none;">
-Definition: Planung, Steuerung und Kontrolle von Materialflüssen.
-</p>
+  <div class="footer" id="counter"></div>
+</div>
+
+<script>
+const cards = [
+  { q: "Was ist Logistik?", a: "Definition: Planung, Steuerung und Kontrolle von Material-, Waren- und Informationsflüssen.\nZiel: Effiziente Versorgung bei minimalen Kosten.\nBeispiel: Wareneingang, Lager, Versand.", top: true },
+  { q: "Was ist ein Logistiksystem?", a: "Definition: Zusammenspiel von Menschen, Technik, IT und Prozessen.\nZiel: Reibungsloser Material- und Informationsfluss.\nBeispiel: Lager mit ERP- und LVS-Anbindung.", top: true },
+  { q: "Ziele der Logistik", a: "Definition: Grundaufgaben der Logistik.\nZiel: Richtige Ware, Menge, Zeit, Ort, Qualität, Kosten.\nBeispiel: Termingerechte Kundenbelieferung.", top: true },
+  { q: "Materialfluss", a: "Definition: Bewegung von Materialien und Waren.\nZiel: Kurze Wege und geringe Durchlaufzeiten.\nBeispiel: Transport Wareneingang → Lager.", top: true },
+  { q: "Lagerumschlag", a: "Definition: Häufigkeit der Bestandsumschichtung pro Jahr.\nZiel: Kapitalbindung senken.\nBeispiel: 6 Umschläge pro Jahr.", top: false }
+];
+
+let index = 0;
+
+function render() {
+  const card = cards[index];
+  document.getElementById("question").innerText = card.q;
+  document.getElementById("answer").innerText = card.a;
+  document.getElementById("answer").style.display = "none";
+  document.getElementById("top").innerText = card.top ? "⭐ TOP-Prüfungsfrage" : "";
+  document.getElementById("counter").innerText = "Karte " + (index+1) + " von " + cards.length;
+}
+
+function toggleAnswer() {
+  const a = document.getElementById("answer");
+  a.style.display = a.style.display === "none" ? "block" : "none";
+}
+
+function nextCard() {
+  index = (index + 1) % cards.length;
+  render();
+}
+
+function prevCard() {
+  index = (index - 1 + cards.length) % cards.length;
+  render();
+}
+
+render();
+</script>
 
 </body>
 </html>
