@@ -92,4 +92,38 @@ const cards = [
   { q: "Durchlaufzeit", a: "Definition: Zeit vom Beginn bis zum Ende eines Prozesses.\nZiel: Zeit- und Kostenreduktion.\nBeispiel: Auftragseingang bis Versand.", top: true },
   { q: "Engpass", a: "Definition: Begrenzende Stelle im Prozess.\nZiel: Leistungssteigerung.\nBeispiel: Zu wenige Packplätze.", top: true },
   { q: "Lagerumschlag", a: "Definition: Häufigkeit der Bestandsumschichtung pro Jahr.\nZiel: Kapitalbindung senken.\nBeispiel: 6 Umschläge/Jahr.", top: true },
-  { q: "Servicegrad", a: "Definition: Ante
+  { q: "Servicegrad", a: "Definition: Anteil termingerechter Aufträge.\nZiel: Kundenzufriedenheit.\nBeispiel: 98 %.", top: false }
+];
+
+let index = 0;
+
+function render() {
+  const card = cards[index];
+  document.getElementById("question").innerText = card.q;
+  document.getElementById("answer").innerText = card.a;
+  document.getElementById("answer").style.display = "none";
+  document.getElementById("top").innerText = card.top ? "⭐ TOP-Prüfungsfrage" : "";
+  document.getElementById("counter").innerText =
+    "Karte " + (index + 1) + " von " + cards.length;
+}
+
+function toggleAnswer() {
+  const a = document.getElementById("answer");
+  a.style.display = a.style.display === "none" ? "block" : "none";
+}
+
+function nextCard() {
+  index = (index + 1) % cards.length;
+  render();
+}
+
+function prevCard() {
+  index = (index - 1 + cards.length) % cards.length;
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>
