@@ -34,7 +34,50 @@
 </div>
 
 <script>
+const cards = [<script>
 const cards = [
+/* ⭐ TOP-30 – kommt sehr sicher dran */
+{q:"Was ist Logistik?",a:"Definition: Planung, Steuerung und Kontrolle von Material-, Waren- und Informationsflüssen.\nZiel: Effiziente Versorgung bei minimalen Kosten.\nBeispiel: Wareneingang, Lager, Versand.",top:true},
+{q:"Was ist ein Logistiksystem?",a:"Definition: Zusammenspiel von Menschen, Technik, IT und Prozessen.\nZiel: Reibungsloser Material- und Informationsfluss.\nBeispiel: Lager mit ERP- und LVS-Anbindung.",top:true},
+{q:"Ziele der Logistik",a:"Definition: Grundaufgaben der Logistik.\nZiel: Richtige Ware, Menge, Zeit, Ort, Qualität, Kosten.\nBeispiel: Termingerechte Kundenbelieferung.",top:true},
+{q:"Materialfluss",a:"Definition: Bewegung von Materialien und Waren.\nZiel: Kurze Wege und geringe Durchlaufzeiten.\nBeispiel: Transport Wareneingang → Lager.",top:true},
+{q:"Informationsfluss",a:"Definition: Austausch logistischer Daten.\nZiel: Transparenz und Steuerung.\nBeispiel: Bestandsbuchung im ERP.",top:true},
+{q:"Prozess",a:"Definition: Abfolge zusammenhängender Tätigkeiten.\nZiel: Effiziente Leistungserstellung.\nBeispiel: Kommissionierprozess.",top:true},
+{q:"Durchlaufzeit",a:"Definition: Zeit vom Beginn bis zum Ende eines Prozesses.\nZiel: Zeit- und Kostenreduktion.\nBeispiel: Auftragseingang bis Versand.",top:true},
+{q:"Engpass",a:"Definition: Begrenzende Stelle im Prozess.\nZiel: Leistungssteigerung.\nBeispiel: Zu wenige Packplätze.",top:true},
+{q:"Lager",a:"Definition: Ort zur Aufbewahrung von Waren.\nZiel: Sicherstellung der Lieferbereitschaft.\nBeispiel: Hochregallager.",top:true},
+{q:"Lagerumschlag",a:"Definition: Häufigkeit der Bestandsumschichtung pro Jahr.\nZiel: Kapitalbindung senken.\nBeispiel: 6 Umschläge/Jahr.",top:true},
+
+/* 🔵 Lager & Kennzahlen */
+{q:"Lagerreichweite",a:"Definition: Zeitraum, den der Bestand reicht.\nZiel: Versorgungssicherheit.\nBeispiel: 20 Tage.",top:false},
+{q:"Durchschnittlicher Lagerbestand",a:"Definition: Mittelwert aus Anfangs- und Endbestand.\nZiel: Kennzahlenermittlung.\nBeispiel: (AB+EB)/2.",top:false},
+{q:"Servicegrad",a:"Definition: Anteil termingerechter Aufträge.\nZiel: Kundenzufriedenheit.\nBeispiel: 98 %.",top:false},
+{q:"Lagerlayout",a:"Definition: Anordnung von Lagerbereichen.\nZiel: Kurze Wege.\nBeispiel: U-förmiges Lager.",top:false},
+{q:"Hochregallager",a:"Definition: Lager mit großen Höhen.\nZiel: Flächennutzung.\nBeispiel: Palettenlager.",top:false},
+
+/* 🔵 IT & Prozesse */
+{q:"LVS",a:"Definition: Lagerverwaltungssystem.\nZiel: Transparenz.\nBeispiel: Scannerkommissionierung.",top:false},
+{q:"ERP",a:"Definition: Integrierte Unternehmenssoftware.\nZiel: Einheitliche Daten.\nBeispiel: SAP.",top:false},
+{q:"Digitalisierung",a:"Definition: Einsatz digitaler Technik.\nZiel: Prozessoptimierung.\nBeispiel: Digitale Lagerbuchung.",top:false},
+{q:"Automatisierung",a:"Definition: Maschinelle Prozessausführung.\nZiel: Kosten senken.\nBeispiel: Fördertechnik.",top:false},
+{q:"KVP",a:"Definition: Kontinuierliche Verbesserung.\nZiel: Effizienz steigern.\nBeispiel: Laufwege verkürzen.",top:false},
+
+/* 🔵 Organisation & Führung */
+{q:"Aufbauorganisation",a:"Definition: Regelung von Zuständigkeiten.\nZiel: Klarheit.\nBeispiel: Organigramm.",top:false},
+{q:"Ablauforganisation",a:"Definition: Gestaltung von Arbeitsabläufen.\nZiel: Effizienz.\nBeispiel: Ablaufplan Wareneingang.",top:false},
+{q:"Controlling",a:"Definition: Planung, Steuerung, Kontrolle.\nZiel: Wirtschaftlichkeit.\nBeispiel: Kennzahlenanalyse.",top:false},
+{q:"Kennzahlen",a:"Definition: Messgrößen.\nZiel: Steuerung.\nBeispiel: Lagerumschlag.",top:false},
+{q:"Führung",a:"Definition: Zielgerichtete Mitarbeiterbeeinflussung.\nZiel: Motivation.\nBeispiel: Mitarbeitergespräch.",top:false},
+
+/* 🔵 Logistikpraxis */
+{q:"Beschaffung",a:"Definition: Einkauf von Materialien.\nZiel: Versorgung sichern.\nBeispiel: Lieferantenauswahl.",top:false},
+{q:"Produktionslogistik",a:"Definition: Versorgung der Produktion.\nZiel: Produktionssicherung.\nBeispiel: Materialbereitstellung.",top:false},
+{q:"Distributionslogistik",a:"Definition: Warenverteilung.\nZiel: Kundenbelieferung.\nBeispiel: Versand.",top:false},
+{q:"Kommissionierung",a:"Definition: Zusammenstellen von Waren.\nZiel: Auftragsabwicklung.\nBeispiel: Mann-zur-Ware.",top:false},
+{q:"Ladungssicherung",a:"Definition: Sicherung der Ladung.\nZiel: Unfallvermeidung.\nBeispiel: Zurrgurte.",top:false}
+];
+</script>
+
   { q: "Was ist Logistik?", a: "Definition: Planung, Steuerung und Kontrolle von Material-, Waren- und Informationsflüssen.\nZiel: Effiziente Versorgung bei minimalen Kosten.\nBeispiel: Wareneingang, Lager, Versand.", top: true },
   { q: "Was ist ein Logistiksystem?", a: "Definition: Zusammenspiel von Menschen, Technik, IT und Prozessen.\nZiel: Reibungsloser Material- und Informationsfluss.\nBeispiel: Lager mit ERP- und LVS-Anbindung.", top: true },
   { q: "Ziele der Logistik", a: "Definition: Grundaufgaben der Logistik.\nZiel: Richtige Ware, Menge, Zeit, Ort, Qualität, Kosten.\nBeispiel: Termingerechte Kundenbelieferung.", top: true },
